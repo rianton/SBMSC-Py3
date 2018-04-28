@@ -8,9 +8,9 @@ from googletrans import Translator
 from urllib.parse import urlencode
 from io import BytesIO, UnsupportedOperation
 
-client = LineClient()
+#client = LineClient()
 #client = LineClient(id='EMAILMU', passwd='PASSWORDMU')
-#client = LineClient(authToken='') 
+client = LineClient(authToken="EsqMaq0k5IebvjrhDvk9.z6Y7Pa9DEyo9ymia6srw6q.u9HGlIhlHlVdCkNrMasxnsXouHlaEQAPHWHk3elj2Gk=") 
 client.log("Auth Token : " + str(client.authToken))
 #========================================================
 channel = LineChannel(client)
@@ -29,11 +29,8 @@ backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 #====================================
 
-helpMessage =""" ༺༽།☤ⵓః•LIβΣRΔTI⌬Π•ఃⵓ☤།༼༻
-╭════════╬♥╬════════╮
-                       ʜᴇʟᴘ menu
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
+helpMessage ="""
+╭════════╬╬════════╮
 ║♪「Myhelp」
 ║♪「Me」
 ║♪「 Mymid」
@@ -74,13 +71,7 @@ helpMessage =""" ༺༽།☤ⵓః•LIβΣRΔTI⌬Π•ఃⵓ☤།༼༻
 ║♪「 kick @」
 ║♪「 Mode:self」
 ║♪「 Mode:public」
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-          🔪JANGAN ADA TYPO 🔪
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-     http://line.me/ti/p/KTS6MCiOZe
-╰════════╬♥╬════════╯
+
 """
 
 poll = LinePoll(client)
@@ -385,7 +376,7 @@ while True:
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
 #============================================================#HELPSTART#=========================================================#
-                            elif text.lower() == 'myhelp':
+                            elif text.lower() == 'help':
                                 client.sendText(msg.to,helpMessage)
                                 print ("[COMMAND] HELP")
                                 
@@ -442,7 +433,7 @@ while True:
                                        except:
                                            client.sendText(msg.to,"Error")
 #======================================================             
-                            elif text == "invgroupcall":
+                            elif text == "call":
                                 if msg.toType == 2:
                                     group = client.getGroup(to)
                                     members = [mem.mid for mem in group.members]
